@@ -22,7 +22,7 @@ window.addEventListener("wheel", (e) =>
             i --;
             sections[i].classList.add("active");
             setTimeout(()=>canMove = true, 1000);
-        }S
+        }
     }
 });
 
