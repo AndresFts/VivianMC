@@ -3,6 +3,9 @@ let sections = document.querySelectorAll("section");
 let i = 0;
 let canMove = true;
 
+let firstTouch;
+let direction;
+
 window.addEventListener("wheel", (e) => 
 {
     if (canMove)
@@ -26,7 +29,36 @@ window.addEventListener("wheel", (e) =>
     }
 });
 
-window.addEventListener("touchmove", (e) => 
+window.addEventListener("touchstart", (e) =>
 {
-    console.log(e.changedTouches[0].screenY);
+    console.log(e.touches);
+    console.log(e.type);
+    firstTouch = e.touches[0];
+});
+window.addEventListener("touchmove", (e) =>
+{
+    e.preventDefault();
+    console.log(e.touches);
+    console.log(e.type);
+    direction = e.touches[0];
+});
+window.addEventListener("touchend", (e) =>
+{
+    console.log(e.type)
+    if (firstTouch.screenY > direction.screenY  && i < 3)
+    {
+        canMove = false;
+        sections[i].classList.remove("active");
+        i ++;
+        sections[i].classList.add("active");
+        setTimeout(()=>canMove = true, 1000);
+    }
+    else if (direction.screenY > firstTouch.screenY && i > 0)
+    {
+        canMove = false;
+        sections[i].classList.remove("active");
+        i --;
+        sections[i].classList.add("active");
+        setTimeout(()=>canMove = true, 1000);
+    }
 });
