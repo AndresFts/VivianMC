@@ -6,6 +6,12 @@ let canMove = true;
 let firstTouch;
 let direction;
 
+window.addEventListener("load", ()=>{
+    setTimeout(()=>sections[0].classList.add("active"))
+    
+})
+
+
 window.addEventListener("wheel", (e) => 
 {
     if (canMove)

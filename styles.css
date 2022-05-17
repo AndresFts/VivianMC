@@ -41,6 +41,8 @@ section.active
     top: -100%;
     z-index: 7;
     transform: translateY(100%);
+    transition: transform 0.8s ease;
+    transition-delay: 0.2s;
 }
 .header > .glass2
 {
@@ -51,6 +53,8 @@ section.active
     right: 0;
     z-index: -1;
     transform: translateY(-100%);
+    transition: transform 1s ease;
+    transition-delay: 0.2s;
 }
 .header > h2.a
 {
@@ -108,7 +112,7 @@ section.active
 }
 .header.active > .glass1, .header.active > .glass2
 {
-    animation: resetPosition 1s 0.2s both;
+    transform: unset;
 }
 .header.active > .container > .texts
 {
@@ -119,21 +123,56 @@ section.active
 
 .about
 {
-    background-color: #ffaa2a;
+    background-color: #e2e2ff;
     display: flex;
     align-items: center;
     gap: 30px;
     justify-content: center;
 }
+.about > .ag
+{
+    min-width: 150px;
+    width: 70vw;
+    min-height: 150px;
+    height: 70vw;
+    border-radius: 50%;
+    position: absolute;
+    transition: transform 0.8s ease;
+}
+.ag1{
+    top: -70vw;
+    left: -70vw;
+}
+.ag2
+{
+    bottom: -70vw;
+    right: -70vw;
+}
+.about.active > .ag1
+{
+    background-color: #436797;
+    transform: translate(40vw, 40vw);
+}
+.about.active > .ag2
+{
+    background-color: #86afe4;
+    transform: translate(-40vw, -40vw);
+}
 .about .card
 {
-    height: 60%;
-    min-height: 350px;
-    max-height: 565px;
+    height: 415px;
     background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px #0005;
+    border-radius: 12px;
+    box-shadow: 7px 7px 15px #0003;
     padding: 30px 20px;
+    gap: 30px;
+    z-index: 10;
+    transition: transform 0.7s ease;
+    transition-delay: 0.3s;
+}
+.about.active > .card
+{
+    transform: none;
 }
 .about > .card > h3
 {
@@ -146,8 +185,8 @@ section.active
 }
 .about > .resumen
 {
+    transform: translateY(-150%);
     width: 457px;
-    padding: 30px;
 
     display: grid;
     gap: 30px;
@@ -167,6 +206,7 @@ section.active
     width: 100%;
     border-radius: 7px;
     object-fit: cover;
+    object-position: top;
     grid-area: photo;
 }
 .resumen > button
@@ -196,19 +236,34 @@ section.active
 }
 .resumen > p
 {
+    transform: scale(1);
     grid-area: paragraph;
-    text-align: i;
+    font-size: 15px;
+    height: 100%;
+    overflow: hidden;
 }
-
-
-
+.resumen > p > span
+{
+    display: none;
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: -5px 1px 5px #fff;
+}
 .about > .skills
 {
+    transform: translateY(150%);
     width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 30px;
 }
 .skills > ul
 {
@@ -275,7 +330,7 @@ section:nth-child(4)
 @keyframes resetPosition
 {
     100%{
-        transform: unset; 
+        transform: none; 
     }    
 }
 
@@ -285,6 +340,9 @@ section:nth-child(4)
         outline-width: 7px;
     }
 }
+
+
+
 
 @media screen and (max-width: 750px)
 {
@@ -313,6 +371,7 @@ section:nth-child(4)
     {
         width: 350px;
         height: auto;
+        max-height: 45vh;
         min-height: 200px;
         padding: 20px 15px;
         gap: 15px;
@@ -330,6 +389,10 @@ section:nth-child(4)
     {
         font-size: 14px;
     }
+    .resumen > p > span
+    {
+        display: block;
+    }
     .about > .skills
     {
         height: 242px;
@@ -342,5 +405,22 @@ section:nth-child(4)
     .about > .skills > button
     {
         height: 30px;
+    }
+}
+
+@media screen and (max-height: 450px)
+{
+    .about > .card
+    {
+        height: 300px;
+        gap: 20px;
+        padding: 20px;
+    }
+    .about > .card > h3{
+        font-size: 28px;
+    }
+    .resumen > p > span
+    {
+        display: block;
     }
 }
