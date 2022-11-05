@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Port+Lligat+Sans&family=Roboto:wght@300;400;700&display=swap');
-
 *
 {
     padding: 0;
@@ -10,28 +9,120 @@
 }
 body
 {
+    background-color: #fff;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
-}
-.carroussel
-{
-    width: 100%;
-    height: 400%;
-
-    display: flex;
-    flex-direction: column;
 }
 section
 {
     width: 100%;
     height: 100%;
-    padding: 30px 20px;
+    outline: 1px dashed black;
 
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
 }
+
+/* --------------- HEADER -------------- */
+
+.header > .glass1
+{
+    height: 100%;
+    width: 50%;
+    background-color: #4a7cbd;
+    position: absolute;
+    top: -100%;
+    z-index: 10;
+    transform: translateY(100%);
+    transition: transform 0.8s ease-in-out;
+    transition-delay: 0.3s;
+}
+.header > .glass2
+{
+    height: 100%;
+    width: 50%;
+    background-color: #4a7cbd;
+    position: absolute;
+    right: 0;
+    z-index: -1;
+    transform: translateY(-100%);
+    transition: transform 0.8s ease-in-out;
+    transition-delay: 0.3s;
+}
+.header > h2.a
+{
+    color: #4a7cbd;
+    font-size: calc((4vw + 4vh)/2);
+    font-weight: 100;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    letter-spacing: 2px;
+}
+.header > h2.b
+{
+    color: #fff;
+    font-size: calc((4vw + 4vh)/2);
+    font-weight: 100;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+.header > .header_texts
+{
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.header > .header_texts > .texts
+{
+    padding: 6vh 4vw;
+    margin: auto;
+    z-index: 5;
+    outline: 0 solid #628abe;
+}
+.header > .header_texts > .texts > h1
+{
+    font-family: 'Port Lligat Sans', sans-serif;
+    font-size: calc(7vw);
+    font-weight: 400;
+    color: #4a7cbd;
+    margin-left: 7px;
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+.header > .header_texts > .texts > h1 > span
+{
+    font-family: inherit;
+    color: #fff;
+}
+.header > .header_texts > .texts > p
+{
+    font-size: calc(3vw - 0px);
+    letter-spacing: 3px;
+    font-weight: 300;
+    margin-left: 7px;
+}
+.header.active > .glass1, .header.active > .glass2
+{
+    transform: unset;
+}
+.header.active > .header_texts > .texts
+{
+    animation: showOutline 0.2s 0.7s both;
+}
+@keyframes showOutline
+{
+    100%{
+        outline-width: 10px;
+    }
+}
+
+/* ----------------------------GALLERY---------------------------- */
+
 .gallery
 {
+    padding: 30px 20px;
     width: 100vw;
 }
 .g_content
@@ -110,40 +201,6 @@ section
 {
     transition-delay: 0.4s;
 }
-
-.info_btn
-{
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    border: none;
-    outline: none;
-    background-color: #86afe4;
-    border-radius: 0 50% 50% 50%;
-    
-}
-
-.fs-icon
-{
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: auto;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.container_img:hover .fs-icon
-{
-    opacity: 1;
-}
-
-.ra-icon
-{
-    height: 27px;
-    fill: #fff;
-    margin: auto;
-}
-
 #nextbtn
 {
     background: linear-gradient(to right, #4a7cbd, #86afe4);
@@ -151,9 +208,8 @@ section
     border: none;
     border-radius: 50%;
 
-    display: flex;
     position: absolute;
-    bottom: 10px;
+    bottom: calc(10px - 100%);
     right: 10px;
     width: 80px;
     height: 80px;
