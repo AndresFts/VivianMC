@@ -7,10 +7,15 @@
     font-family: 'Roboto', sans-serif;
     color: #444;
 }
+html
+{
+    height: -webkit-fill-available;
+}
 body
 {
     background-color: #fff;
     height: 100vh;
+    height: -webkit-fill-available;
     width: 100vw;
     overflow: hidden;
 }
@@ -19,8 +24,6 @@ section
     width: 100%;
     height: 100%;
     outline: 1px dashed black;
-
-    /* flex-basis: 100%; */
 }
 
 /* --------------- HEADER -------------- */
