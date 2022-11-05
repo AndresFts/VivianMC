@@ -26,7 +26,7 @@ let space = 0;
     document.ontouchmove = (e)=>
     {
         space = e.touches[0].clientY - startY;
-        body.style.transform = `translateY(calc(${scroll}vh + (${space}px)))`;
+        body.style.transform = `translateY(calc(${scroll}% + (${space}px)))`;
     }
     document.ontouchend = (e)=>
     {
@@ -36,5 +36,5 @@ let space = 0;
             space = 0;
         }
         body.style.transitionDuration = `500ms`;
-        body.style.transform = `translateY(${scroll}vh)`;
+        body.style.transform = `translateY(${scroll}%)`;
     }
