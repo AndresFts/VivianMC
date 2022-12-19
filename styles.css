@@ -23,7 +23,6 @@ section
 {
     width: 100%;
     height: 100%;
-    outline: 1px dashed black;
 }
 
 /* --------------- HEADER -------------- */
@@ -176,14 +175,19 @@ section
     height: 100%;
     width: 100%;
     display: grid;
-    gap: 15px;
+    grid-template-rows: 250px 2fr 3fr;
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: "p1 p1"
+                         "in p2"
+                         "p3 p3";
+    gap: 5px;
 }
 .g_images.active
 {
     opacity: 1;
     z-index: 10;
 }
-.g_images.active > .g_img
+.g_images.active > .g_img, .g_images.active > .inf-btn
 {
     transform: none;
     opacity: 1;
@@ -199,14 +203,35 @@ section
     transition-duration: 0.5s;
     opacity: 0;
 }
-.img1{transition-delay: 0.2s;}
-.img2{transition-delay: 0.3s;}
-.img3{transition-delay: 0.4s;}
+.img1{transition-delay: 0.2s; grid-area: p1;}
+.img2{transition-delay: 0.3s; grid-area: p2;}
+.img3{transition-delay: 0.4s; grid-area: p3;}
+.inf-btn
+{
+    grid-area: in;
+    background-color: #4a7cbd;
+    color: #fff;
+    font-size: 50px;
+    outline: none;
+    border: none;
+    font-family: 'Port Lligat Sans', sans-serif;
+    opacity: 0;
+    transform: translateX(-30px);
+
+    transition-property: transform, opacity;
+    transition-duration: 0.5s;
+    transition-delay: 0.5s;
+    cursor: pointer;
+}
+.inf-btn:active
+{
+    background-color: #3f5878;
+}
 
 #nextbtn
 {
-    background: linear-gradient(to bottom, #4a7cbdaf, #86afe4);
-    outline: none;
+    background: linear-gradient(to bottom, #4a7cbd, #86afe4);
+    outline: 3px solid #fff;
     border: none;
     border-radius: 50%;
 

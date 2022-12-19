@@ -30,7 +30,7 @@ let space = 0;
     }
     document.ontouchend = (e)=>
     {
-        if (space > 200 || space < -200)
+        if (space > 50 || space < -50)
         {
             scroll = scroll + Math.sign(space) * 100;
             space = 0;
