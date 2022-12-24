@@ -121,6 +121,8 @@ section
 }
 
 /* ----------------------------GALLERY---------------------------- */
+/* ----------------------------GALLERY---------------------------- */
+/* ----------------------------GALLERY---------------------------- */
 
 .gallery
 {
@@ -245,4 +247,24 @@ section
 #nextbtn:active
 {
     transform: scale(0.8);
+}
+
+/* ----------------------------ABOUT---------------------------- */
+/* ----------------------------ABOUT---------------------------- */
+/* ----------------------------ABOUT---------------------------- */
+
+.about__container
+{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile__img
+{
+    height: 20vw;
+    width: 20vw;
+    border-radius: 50%;
+    outline: 5px solid #628abe;
+    margin: 40px 0;
 }
