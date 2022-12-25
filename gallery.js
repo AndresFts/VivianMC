@@ -10,11 +10,6 @@ for (let i = 0; i < infos.length; i++) {
     infos[i].onclick = hideInfo;
 }
 
-
-iBtns.forEach(i => {
-    i.onclick = showInfo;
-});
-
 nextbtn.onclick = next;
 
 function next()

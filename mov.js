@@ -1,4 +1,5 @@
 const count = document.querySelectorAll("section").length;
+const skills = document.querySelector(".skills");
 body.style.transform = "translateY(0)";
 
 //Mouse Scroll
@@ -24,10 +25,15 @@ document.ontouchmove = (e)=>
 }
 document.ontouchend = (e)=>
 {
-    if (space > 50 && current > 0 || space < -50 && current < count-1)
+    if (space > 50 && current > 0)
     {
-        scroll = scroll + Math.sign(space) * 100;
-        current = current + Math.sign(space)*-1;
+        scroll = scroll +100;
+        current = current - 1
+    }
+    else if(space < -50 && current < count-1)
+    {
+        scroll = scroll -100;
+        current = current + 1
     }
     space = 0;
     body.style.transitionDuration = `500ms`;

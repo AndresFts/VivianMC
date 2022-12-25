@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     color: #444;
 }
 html
@@ -117,7 +118,7 @@ section
 @keyframes showOutline
 {
     100%{
-        outline-width: 10px;
+        outline-width: 8px;
     }
 }
 
@@ -268,6 +269,7 @@ section
     outline: 3px solid #fff;
     border: none;
     border-radius: 50%;
+    padding: 10px;
 
     position: absolute;
     bottom: 10px;
@@ -287,16 +289,150 @@ section
 
 .about__container
 {
-    padding: 20px;
+    height: 100%;
+    padding: 30px 20px;
+    background: linear-gradient(to bottom, #4a7cbd, #fff);
+
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 30px;
 }
 .profile__img
 {
-    height: 20vw;
-    width: 20vw;
+    min-height: 150px;
+    max-width: 20vw;
+    min-width: 150px;
     border-radius: 50%;
-    outline: 5px solid #628abe;
-    margin: 40px 0;
+    outline: 5px solid #fff;
+    background-image: url(source/profile.jpg);
+    background-size: cover;
+    box-shadow: 3px 2px 10px #000;
+}
+.about__main
+{
+    height: 100%;
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+.about__main > .b_container
+{
+    background-color: #4a7cbd;
+    height: 50px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    display: flex;
+}
+.about__main > .b_container > button
+{
+    outline: none;
+    border: none;
+    background-color: #4a7cbd;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 2px 0 #fff;
+
+    flex: 1;
+}
+.about__main > .b_container > button.active
+{
+    background-color: #fff;
+}
+.about__main > .b_container > button > svg
+{
+    height: 25px;
+    fill: #fff;
+}
+.about__main > .b_container > button.active > svg
+{
+    fill: #4a7cbd;
+}
+article
+{
+    flex: 1;
+    transform: scale(1);
+}
+.resume
+{
+    background: #fff;
+    padding: 20px 30px;
+    height: 100%;
+    position: relative;
+    z-index: -1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.resume.active
+{
+    z-index: 100;
+}
+.resume > p
+{
+    flex: 1;
+    max-height: 250px;
+    font-size: 16px;
+    overflow-y: scroll;
+}
+.resume b
+{
+    color: #133e76;
+    font-size: 18px;
+}
+.skills
+{
+    height: 100%;
+    width: 100%;
+    padding: 20px 30px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    overflow-y: scroll;
+}
+.skills > .skill
+{
+    padding: 8px 20px;
+}
+.skill > .av
+{
+    margin-top: 5px;
+    background-color: #f00;
+    height: 5px;
+    width: 100%;
+}
+.skill > .me
+{
+    margin-top: 5px;
+    height: 5px;
+    width: 60%;
+    background-color: #fd0;
+}
+
+footer
+{
+    position: absolute;
+    bottom: calc(-200% - 1);
+    background: #4d4d4d;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(0);
+}
+footer > p
+{
+    color: #fff;
+    margin: auto;
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    font-weight: 100;
 }
