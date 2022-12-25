@@ -18,6 +18,7 @@ body
     height: -webkit-fill-available;
     width: 100vw;
     overflow: hidden;
+    transform: translateY(0);
 }
 section
 {
@@ -81,7 +82,7 @@ section
     padding: 6vh 4vw;
     margin: auto;
     z-index: 5;
-    outline: 0 solid #628abe;
+    outline: 0 solid #86a2c6;
 }
 .header > .header_texts > .texts > h1
 {
@@ -127,6 +128,7 @@ section
 .gallery
 {
     padding: 30px 20px;
+    transform: scale(1);
 }
 .g_content
 {
@@ -229,6 +231,36 @@ section
 {
     background-color: #3f5878;
 }
+.info__container
+{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000a;
+    display: flex;
+
+    transform: scale(0);
+    transition: transform 0.3s;
+}
+.info__container.active
+{
+    transform: scale(1);
+}
+.info__container > p
+{
+    margin: auto;
+    font-size: 1.1rem;
+    width: 320px;
+    max-width: 90%;
+    max-height: 80%;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px #000;
+}
 
 #nextbtn
 {
@@ -238,7 +270,7 @@ section
     border-radius: 50%;
 
     position: absolute;
-    bottom: calc(10px - 100%);
+    bottom: 10px;
     right: 10px;
     width: 80px;
     height: 80px;
